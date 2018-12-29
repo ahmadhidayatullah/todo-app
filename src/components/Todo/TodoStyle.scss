@@ -1,0 +1,180 @@
+$color-green: #42b549;
+$color-black: #2b2b2b;
+$color-black-lighter: rgba(0, 0, 0, 54);
+$color-black-more-lighter: rgba(0, 0, 0, 38);
+$color-border: #e0e0e0;
+$color-white:#fff;
+$color-orange:#ff4500;
+
+%box-shadow {
+  padding: 16px;
+  border-radius: 4px;
+  // border: 1px solid $color-border;
+  background-color: $color-white;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
+}
+
+@mixin transition($property) {
+  -webkit-transition: $property;
+  -moz-transition: $property;
+  -o-transition: $property;
+  transition: $property;
+}
+
+.input {
+  outline: none;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid $color-border;
+  padding: 8px;
+  box-sizing: border-box;
+  font-size: 14px;
+  @include transition(border-color 0.3s ease-in-out);
+
+  &:focus {
+    border-color: $color-orange;
+  }
+
+  &--small {
+    height: 32px;
+  }
+
+  &--medium {
+    height: 40px;
+  }
+
+  &--large {
+    height: 48px;
+  }
+
+
+}
+
+.btn {
+  width: 100%;
+  border-radius: 4px;
+  border: 0;
+  padding: 8px;
+  box-sizing: border-box;
+  color: $color-white;
+  @include transition(background-color 0.3s ease-in-out);
+
+  &--small {
+    height: 32px;
+  }
+
+  &--medium {
+    height: 40px;
+  }
+
+  &--large {
+    height: 48px;
+  }
+
+  &--orange {
+    background-color: $color-orange;
+
+    &:hover {
+      background-color: darken($color-orange, 7%)
+    }
+  }
+}
+
+.box__container {
+  position: relative;
+  top: -80px;
+  max-width: 980px;
+  margin: auto;
+  @extend %box-shadow;
+  width: 80%;
+}
+
+.todo-input-group__container {
+  padding-bottom: 16px;
+  border-bottom: 1px solid $color-border;
+}
+
+.todo-input__wrapper {
+  display: inline-block;
+  width: calc(100% - 101px);
+  margin-right: 16px;
+}
+
+.todo-button__wrapper {
+  display: inline-block;
+  width: 85px;
+}
+
+.todo-intro {
+  &__container {
+    height: 300px;
+    width: 100%;
+    color: $color-black;
+    background-image: url('https://cdn7.tokopedia.net/img/ovo/shape-shape-mask@3x.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+  }
+
+  &__content {
+    margin: auto;
+    text-align: center;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 40px;
+  }
+
+  &__desc {
+    margin-top: 8px;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: $color-black-lighter;
+  }
+}
+
+.todo-list {
+
+  &__container {
+    margin-top: 16px;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 18px;
+  }
+
+  &__content {
+    @extend %box-shadow;
+    list-style: none;
+    margin: 16px 0 0;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    input {
+      margin: 0;
+      margin-right: 4px;
+    }
+
+    &-action {
+      color: $color-black-more-lighter;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    &-label-through {
+      text-decoration: line-through;
+    }
+  }
+
+}
